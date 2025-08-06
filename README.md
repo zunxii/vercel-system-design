@@ -14,7 +14,7 @@ This project implements a **mini-Vercel-like system** capable of:
 ## 🧹 Architecture Overview
 
 ```
-User ↔️ [localhost:5432] Frontend (Next.js)
+User ↔️ [localhost:5432] Frontend (React.js)
      ↕︎
 Frontend ➡️ Upload-Service[localhost:3000] ➡️ AWS S3
          ➡️ Vercel Deploy Service [build the project]
