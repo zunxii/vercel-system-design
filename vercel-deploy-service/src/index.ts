@@ -21,7 +21,7 @@ async function main(){
         console.log(`Building project with ID: ${id}`);
         await buildProject(id);
         await copyFinalDist(id);
-         publisher.hSet("status", id, "deployed")
+        publisher.hSet("status", id, "deployed")
     }
 }
 

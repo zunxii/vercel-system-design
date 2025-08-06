@@ -1,7 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 export const getAllfiles = (folderPath) => {
     const response = [];
     const allFilesAndFolders = fs.readdirSync(folderPath);

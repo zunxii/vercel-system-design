@@ -1,12 +1,17 @@
 import fs from 'fs';
 import pkg from 'aws-sdk';
 const { S3 } = pkg;
+import dotenv from 'dotenv';
+dotenv.config();
 const s3 = new S3({
-    accessKeyId: "fa78b425c6d14eb951319632acc02525",
-    secretAccessKey: "046d50ac656521090bcde69ecf037075ff092de3425de1201a02d928afc5c70c",
-    endpoint: "https://c93b5765dc3a67221f12a557e6eefb2a.r2.cloudflarestorage.com",
+    accessKeyId: process.env.ACCESS_KEY_ID || "",
+    secretAccessKey: process.env.SECRET_ACCESS_KEY || "",
+    endpoint: process.env.ENDPOINT || "",
 });
 export const uploadFile = async (fileName, localFilePath) => {
+    console.log("ACCESS_KEY_ID:", process.env.ACCESS_KEY_ID);
+    console.log("SECRET_ACCESS_KEY:", process.env.SECRET_ACCESS_KEY);
+    console.log("ENDPOINT:", process.env.ENDPOINT);
     const fileContent = fs.readFileSync(localFilePath);
     const response = await s3.upload({
         Body: fileContent,
